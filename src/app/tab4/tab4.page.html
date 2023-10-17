@@ -1,0 +1,55 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>AVALIÇÃO DA COZINHA</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="page-background">
+    <div class="container" >
+      <ion-card class="background-card" *ngFor="let c of cozinha" >
+        <img class="card-img" alt="Silhouette of mountains" src="{{c.foto}}" />
+        <ion-card-header>
+          <ion-card-title>{{c.nome}}</ion-card-title>
+          <ion-card-subtitle>{{c.descricao}}</ion-card-subtitle>
+        </ion-card-header>
+
+        <ion-card-content>
+          Há muitos anos, em uma pequena aldeia no sul da França, existia uma cozinha muito especial. Esta cozinha não
+          era apenas um lugar para preparar refeições, mas também um espaço que unia a comunidade e preservava as
+          tradições culinárias da região.
+
+          A história da cozinha começou no século XIX, quando um habilidoso artesão chamado Pierre decidiu construir uma
+          casa para sua família. Ele era apaixonado por gastronomia e sonhava em ter um espaço onde pudesse não apenas
+          alimentar sua família, mas também compartilhar suas habilidades culinárias com os amigos e vizinhos.
+          <br/>
+          Pierre era conhecido por suas receitas únicas, usando ingredientes frescos colhidos de seu jardim e ervas
+          aromáticas cultivadas em sua horta. Ele construiu a cozinha com todo o cuidado e atenção aos detalhes,
+          incorporando elementos rústicos e tradicionais da arquitetura da região.
+
+          Hoje, a cozinha é um símbolo de união, tradição e amor pela culinária na aldeia. Os moradores continuam a se
+          reunir regularmente para cozinhar, celebrar e compartilhar suas receitas favoritas. Cada pedaço de mobília,
+          cada utensílio e cada canto da cozinha têm uma história para contar, e as receitas secretas de Pierre são
+          passadas de geração em geração.
+
+          Essa cozinha não é apenas um lugar para preparar refeições; é um espaço que mantém viva a rica herança
+          culinária da aldeia e a conexão entre as pessoas. Ela é um lembrete de que a comida pode unir, curar e nutrir
+          não apenas o corpo, mas também a alma. E assim, a história da cozinha continua a ser escrita a cada dia, com
+          amor, amizade e deliciosos pratos que unem a comunidade e mantêm viva a tradição de Pierre.
+
+          <div class="rating">
+            <ion-icon [name]="estrelasSelecionadas >= 1 ? 'star' : 'star-outline'" (click)="setRating(1)"></ion-icon>
+            <ion-icon [name]="estrelasSelecionadas >= 2 ? 'star' : 'star-outline'" (click)="setRating(2)"></ion-icon>
+            <ion-icon [name]="estrelasSelecionadas >= 3 ? 'star' : 'star-outline'" (click)="setRating(3)"></ion-icon>
+            <ion-icon [name]="estrelasSelecionadas >= 4 ? 'star' : 'star-outline'" (click)="setRating(4)"></ion-icon>
+            <ion-icon [name]="estrelasSelecionadas >= 5 ? 'star' : 'star-outline'" (click)="setRating(5)"></ion-icon>
+    
+            <br />
+            <br />
+            <button class="buttonModal" (click)="avaliarCozinha(c.id)">Avaliar</button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>

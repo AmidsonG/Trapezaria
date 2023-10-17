@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Ocupação
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Outros conteúdos aqui -->
+  <div class="page-background">
+    
+    <div  *ngFor=" let o of ocupacao">
+      <br/>
+      <h3 class="tituloOcupacao">Número de pessoas no Refeitório</h3>
+      <div class="status-indicator"
+        [ngClass]="{'yellow': o.numero > 20 && o.numero <= 40, 'green': o.numero <= 20, 'red': o.numero > 40}">
+
+        <h4><strong>{{o.numero}}</strong></h4>
+        <!-- Conteúdo da bola piscante aqui (por exemplo, um círculo) -->
+      </div>
+    </div>
+  </div>
+</ion-content>

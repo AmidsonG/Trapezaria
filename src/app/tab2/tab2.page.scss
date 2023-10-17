@@ -1,0 +1,72 @@
+.page-background {
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(4, 10, 46, 0.92);
+  /* Cor de fundo com transparência */
+}
+
+.page-background::before {
+  content: "";
+  background-image: url('../../assets/images/imagemDeFundo.jpg');
+  background-size: cover;
+  /* Ajuste o tamanho conforme necessário */
+  background-repeat: no-repeat;
+  /* Evita a repetição da imagem */
+  background-position: center;
+  background-attachment: fixed;
+  /* Pode tornar a imagem de fundo fixa */
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+ion-title {
+  text-align: center;
+  font-size: 24px;
+}
+
+.status-indicator {
+  width: 50px;
+  height: 50px;
+  border-radius: 80%;
+  animation: pulse 1s infinite alternate;
+  text-align: center;
+
+}
+
+.tituloOcupacao {
+  margin-top: 10px;
+  color: white;
+  
+}
+
+.yellow {
+  background-color: orange;
+  margin: 10% 10% 10% 10%;
+}
+
+.green {
+  background-color: green;
+  margin: 25% 25% 25% 25%;
+}
+
+.red {
+  background-color: red;
+  margin: 75% 75% 75% 75%;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.2);
+  }
+}

@@ -1,0 +1,75 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>CHEF'S</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <div class="page-background">
+    <div class="container">
+      <ion-card *ngFor="let f of funcionario" class="mb-10 card-img">
+        <img (click)="openModal(f.imagem, f.nome,f.id,f.departamento,f.funcao,f.endereco,f.email)"
+          alt="Silhouette of mountains" src="{{f.imagem}}" width="190" height="140" />
+        <ion-card-header>
+          <ion-card-title (click)="openModal(f.imagem, f.nome,f.id,f.departamento,f.funcao,f.endereco ,f.email)">{{
+            f.nome }}</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </div>
+  </div>
+
+  <ion-content class="ion-padding d-none">
+    <ion-modal [isOpen]="isModalOpen">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-title slot="start">Detalhes do Chef</ion-title>
+            <ion-buttons slot="end">
+              <ion-button (click)="setOpen(false)">Fechar</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          <div class="page-background">
+
+            <div class="containerModal">
+              <ion-card class="background-card">
+                <img class="card-img" alt="Silhouette of mountains" src="{{selectedImage}}" width="200" height="150" />
+                <ion-card-header>
+                  <ion-card-subtitle><strong>E-mail Adress:</strong> {{selectedEmail}}</ion-card-subtitle>
+                  <ion-card-title>{{selectedNome}}</ion-card-title>
+                  
+                </ion-card-header>
+
+                <ion-card-content>
+                  <hr class="horizontal-bar">
+                  <h3 class="h3-modal">Mais informações sobre o Chef:</h3>
+                  <p class="detalhesModal"><strong>Departamento:</strong> {{selectedDepartamento}}</p>
+                  <p class="detalhesModal"><strong>Função:</strong> {{selectedFuncao}}</p>
+                  <p class="detalhesModal"><strong>Morada:</strong> {{selectedMorada}}</p>
+
+                  <hr class="horizontal-bar">
+                  <h3 class="h3-modal">Classificação do Chef</h3>
+
+                  <div class="rating">
+                    <ion-icon [name]="estrelasSelecionadas >= 1 ? 'star' : 'star-outline'"
+                      (click)="setRating(1)"></ion-icon>
+                    <ion-icon [name]="estrelasSelecionadas >= 2 ? 'star' : 'star-outline'"
+                      (click)="setRating(2)"></ion-icon>
+                    <ion-icon [name]="estrelasSelecionadas >= 3 ? 'star' : 'star-outline'"
+                      (click)="setRating(3)"></ion-icon>
+                    <ion-icon [name]="estrelasSelecionadas >= 4 ? 'star' : 'star-outline'"
+                      (click)="setRating(4)"></ion-icon>
+                    <ion-icon [name]="estrelasSelecionadas >= 5 ? 'star' : 'star-outline'"
+                      (click)="setRating(5)"></ion-icon>
+                    <br />
+                    <button class="buttonModal" (click)="avaliarChefe()">Avaliar</button>
+                  </div>
+                </ion-card-content>
+              </ion-card>
+            </div>
+          </div>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+  </ion-content>
+</ion-content>

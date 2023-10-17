@@ -1,0 +1,74 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>PRATOS DO DIA </ion-title>
+    <ion-icon class="btnHistorico" name="bookmark-outline" slot="end" (click)="todosPratos()"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <div class="page-background">
+    <div class="container">
+      <ion-card *ngFor="let p of pratosHoje" class="mb-10 card-img">
+        <img (click)="openModal(p.imagem, p.nome_do_prato, p.descricao, p.id)" alt="Silhouette of mountains"
+          src="{{p.imagem}}" width="190" height="140" />
+        <ion-card-header>
+          <ion-card-title (click)="openModal(p.imagem, p.nome_do_prato, p.descricao, p.id)">
+            {{p.nome_do_prato}}</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </div>
+  </div>
+
+  <ion-content class="ion-padding d-none">
+    <ion-modal [isOpen]="isModalOpen">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-title slot="start">DESCRIÇÃO DO PRATO</ion-title>
+            <ion-buttons slot="end">
+              <ion-button (click)="setOpen(false)">Fechar</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          <div class="page-background">
+
+            <div class="containerModal">
+              <ion-card class="background-card">
+                <img class="card-img" alt="Silhouette of mountains" src="{{selectedImage}}" width="200" height="150" />
+                <ion-card-header>
+                  <ion-card-title>{{selectedTitle}}</ion-card-title>
+                  
+                </ion-card-header>
+
+                <ion-card-content>
+                  <hr class="horizontal-bar">
+                  <br/>
+                  <p class="detalhesModal"><b>DETALHES DO PRATO: </b>{{selectedDescription}}</p>
+             
+                  <br/>
+                  <hr class="horizontal-bar">
+                  <h3 class="h3-modal">Classificação do Prato</h3>
+
+                  <div class="rating">
+                    <ion-icon [name]="estrelasSelecionadas >= 1 ? 'star' : 'star-outline'"
+                      (click)="setRating(1)"></ion-icon>
+                    <ion-icon [name]="estrelasSelecionadas >= 2 ? 'star' : 'star-outline'"
+                      (click)="setRating(2)"></ion-icon>
+                    <ion-icon [name]="estrelasSelecionadas >= 3 ? 'star' : 'star-outline'"
+                      (click)="setRating(3)"></ion-icon>
+                    <ion-icon [name]="estrelasSelecionadas >= 4 ? 'star' : 'star-outline'"
+                      (click)="setRating(4)"></ion-icon>
+                    <ion-icon [name]="estrelasSelecionadas >= 5 ? 'star' : 'star-outline'"
+                      (click)="setRating(5)"></ion-icon>
+                    <br />
+                    <button class="buttonModal" (click)="avaliarPrato()">Avaliar</button>
+                  </div>
+                </ion-card-content>
+              </ion-card>
+            </div>
+          </div>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+  </ion-content>
+</ion-content>

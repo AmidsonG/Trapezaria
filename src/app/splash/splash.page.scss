@@ -1,0 +1,39 @@
+.page-background {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(4, 10, 46, 0.92); /* Cor de fundo com transparência */
+    
+}
+  
+  .page-background::before {
+    content: "";
+    background-image: url('../../assets/images/imagemDeFundo.jpg') ;
+    background-size: cover; /* Ajuste o tamanho conforme necessário */
+    background-repeat: no-repeat; /* Evita a repetição da imagem */
+    background-position: center;
+    background-attachment: fixed; /* Pode tornar a imagem de fundo fixa */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+
+    h1 {
+        font-size: 60px;
+        font-family: sans-serif;
+        text-align: center;
+        position: relative;
+        
+    }
+}
+  
+
+  
+  
+
+  

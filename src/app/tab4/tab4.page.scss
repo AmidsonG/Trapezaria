@@ -1,0 +1,88 @@
+.page-background {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(4, 10, 46, 0.92);
+  /* Cor de fundo com transparência */
+  overflow: hidden;
+}
+
+.page-background::before {
+  content: "";
+  background-image: url('../../assets/images/imagemDeFundo.jpg');
+  background-size: cover;
+  /* Ajuste o tamanho conforme necessário */
+  background-repeat: no-repeat;
+  /* Evita a repetição da imagem */
+  background-position: center;
+  background-attachment: scroll;
+  /* Pode tornar a imagem de fundo fixa */
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+ion-title{
+  text-align: center;
+  font-size: 24px;
+}
+
+.container {
+  padding: 20px;
+}
+
+.background-card{
+  background-color: rgba(243, 244, 247, 0.03);
+  min-width: 100%;
+}
+
+ion-card-title {
+  color: white;
+  text-align: center;
+  font-size: 32px;
+  
+}
+
+ion-card-subtitle {
+  color: rgb(209, 178, 178);
+}
+
+ion-card-content {
+  color: white;
+  font-size: 19px;
+  text-align: justify;
+}
+
+.card-img {
+  width: 400px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+}
+
+.rating {
+  color: #0abf04;
+  text-align: center;
+  font-size: 21px;
+  margin-top: 5px;
+}
+
+.buttonModal {
+  background-color: #0abf04;
+  color: white;
+  border: none;
+  /* Remove a borda do botão */
+  border-radius: 5px;
+  /* Borda arredondada para o botão */
+  padding: 10px 20px;
+  /* Espaçamento interno do botão */
+  font-size: 16px;
+  /* Tamanho da fonte do botão */
+  cursor: pointer;
+  font-size: 21px;
+}

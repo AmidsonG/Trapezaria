@@ -1,0 +1,62 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>HISTORICO </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeHistorico()">Fechar</ion-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <div class="page-background">
+    <div class="container">
+      <ion-card *ngFor="let p of pratos" class="mb-10 card-img">
+        <img (click)="openModal(p.imagem, p.nome_do_prato, p.descricao)" alt="Silhouette of mountains"
+          src="{{p.imagem}}" width="190" height="140" />
+        <ion-card-header>
+          <ion-card-title (click)="openModal(p.imagem, p.nome_do_prato, p.descricao)">
+            {{p.nome_do_prato}}</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </div>
+  </div>
+
+  <ion-content class="ion-padding d-none">
+    <ion-modal [isOpen]="isModalOpen">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-title >DESCRIÇÃO DO PRATO</ion-title>
+            <ion-buttons slot="end">
+              <ion-button (click)="setOpen(false)">Fechar</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          <div class="page-background">
+
+            <div class="containerModal">
+              <ion-card class="background-card">
+                <img class="card-img" alt="Silhouette of mountains" src="{{selectedImage}}" width="200" height="150" />
+                <ion-card-header>
+                  <ion-card-title>{{selectedTitle}}</ion-card-title>
+                  
+                </ion-card-header>
+
+                <ion-card-content>
+                  <hr class="horizontal-bar">
+                  <br/>
+                  <p class="detalhesModal"><b>DETALHES DO PRATO: </b>{{selectedDescription}}</p>
+             
+                  <br/>
+                  
+                  
+                </ion-card-content>
+              </ion-card>
+            </div>
+          </div>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+  </ion-content>
+</ion-content>

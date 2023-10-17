@@ -1,0 +1,75 @@
+.page-background {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(4, 10, 46, 0.92); /* Cor de fundo com transparência */
+  }
+  
+  .page-background::before {
+    content: "";
+    background-image: url('../../assets/images/imagemDeFundo.jpg');
+    background-size: cover; /* Ajuste o tamanho conforme necessário */
+    background-repeat: no-repeat; /* Evita a repetição da imagem */
+    background-position: center;
+    background-attachment: fixed; /* Pode tornar a imagem de fundo fixa */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+  }
+  
+  .page-background p,
+  .page-background h1,
+  .page-background h2,
+  .page-background h3,
+  .page-background h4,
+  .page-background h5,
+  .page-background h6,
+  .page-background strong,
+  .page-background em,
+  .page-background span {
+    color: white; /* Define todas as letras em branco */
+  }
+  
+  .logo {
+    position: absolute;
+    top: 10px; /* Ajuste a posição vertical conforme necessário */
+    left: 10px; /* Ajuste a posição horizontal conforme necessário */
+    width: 200px; /* Ajuste o tamanho da imagem conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+    z-index: 1; /* Coloca a imagem acima do conteúdo */
+  }
+
+  .header {
+    text-align: justify;
+    margin: 0 20px; /* Adicione a margem nos lados conforme necessário */
+  }
+  
+  .horizontal-bar {
+    border: none;
+    border-top: 2px solid white; /* Estilize a barra horizontal conforme necessário */
+    margin-top: 3px; /* Adicione margem acima e abaixo da barra */
+  }
+
+  .content {
+    text-align: justify; /* Justificar o conteúdo */
+    border-left: 2px solid black; /* Adicionar borda esquerda */
+    border-right: 2px solid black; /* Adicionar borda direita */
+    padding: 0 20px; /* Adicionar preenchimento nos lados conforme necessário */
+    font-size: 20px; /* Aumentar o tamanho das letras para 20 pixels, ajuste conforme necessário */
+    margin-top: 60px;
+  }
+  
+  .page-background h1{
+    font-size: 37px;
+  }
+  
+  
+  
+  /* Outros estilos necessários */
+  

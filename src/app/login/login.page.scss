@@ -1,0 +1,121 @@
+
+    .page-background {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(4, 10, 46, 0.92); /* Cor de fundo com transparência */
+        
+    }
+    .page-background::before {
+        content: "";
+        background-image: url('../../assets/images/imagemDeFundo.jpg') ;
+        background-size: cover; /* Ajuste o tamanho conforme necessário */
+        background-repeat: no-repeat; /* Evita a repetição da imagem */
+        background-position: center;
+        background-attachment: fixed; /* Pode tornar a imagem de fundo fixa */
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        z-index: -1;
+    }
+    /* Estilo para o elemento .middle */
+    .middle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center; /* Centraliza o texto horizontalmente */
+         /* Adicione uma altura para centralizar verticalmente */
+       
+        height: 80%;
+    }
+
+    /* Estilo para a imagem no elemento .middle */
+    .middle img {
+        max-width: 45%; /* Defina o tamanho máximo da imagem, como 50% da largura do elemento pai */
+    }
+  
+        
+/* Estilo para o título "TRAPEZARIA APP" */
+.page-background p {
+    font-size: 39px; /* Tamanho de fonte aumentado */
+    color: white; /* Cor do texto */
+    text-align: center; /* Centraliza o texto horizontalmente */
+    margin-bottom: 50px; /* Margem inferior reduzida */
+    max-width: 70%;
+  }
+  
+  /* Estilo para o formulário */
+  .box {
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo transparente */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  /* Estilo para o campo de entrada */
+  ion-item {
+    --ion-background-color: transparent; /* Fundo transparente */
+    --ion-text-color: white; /* Cor do texto */
+    --ion-item-padding-start: 0;
+    --ion-item-padding-end: 0;
+    height: 20px;
+  }
+
+  .ion-align-self-center{
+    margin-top: 31px;
+    align-self: center;
+    color: white;
+  }
+  
+  ion-input {
+    color: white; /* Cor do texto no input */
+  }
+  
+ /* Estilo para o botão de login */
+ .buttonModal {
+  background-color: #0abf04;
+  color: white;
+  border: none;
+  /* Remove a borda do botão */
+  border-radius: 5px;
+  /* Borda arredondada para o botão */
+  padding: 10px 20px;
+  /* Espaçamento interno do botão */
+  font-size: 16px;
+  /* Tamanho da fonte do botão */
+  cursor: pointer;
+  font-size: 21px;
+  margin-bottom: 70px;
+ }
+  
+  /* Estilo para a mensagem de erro */
+  ion-text.color-danger {
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  /* Estilo para o texto "Faça o login e conheça os pratos do dia" */
+  #media {
+    font-size: 19px;
+    margin-top: 2px;
+  }
+
+  .inner-scroll scroll-y overscroll{
+    display: none;
+  }  
+  
+  .item-native::after {
+    background-color: transparent;
+    
+}
+
+    
+
+    

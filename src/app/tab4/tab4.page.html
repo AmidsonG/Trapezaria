@@ -46,7 +46,33 @@
     
             <br />
             <br />
-            <button class="buttonModal" (click)="avaliarCozinha(c.id)">Avaliar</button>
+            <button id="present-alert" class="buttonModal" (click)="avaliarCozinha(c.id)">Avaliar</button>
+            <ion-alert trigger="present-alert" header="Avaliação" subHeader=""
+                      message="Avaliação Feita com sucesso!" [buttons]="alertButtons"></ion-alert>
+          </div>
+
+          <div>
+            <ion-card class="background-card">
+              <ion-card-header class="media_Tamnho">
+                Média: {{mediaAvaliado}}
+              </ion-card-header>
+              <ion-card-content>
+                Número de Classificações: {{totalAvaliado}}
+              </ion-card-content>
+
+            </ion-card>
+
+            <ion-card class="background-card">
+
+              <ion-card-content class="pb-0" *ngFor="let star of stars">
+                <div class="bar-estrelas">
+                  {{ star }}
+                  <ion-icon name="star"> </ion-icon>
+                  <ion-progress-bar [value]="progress[star] / maxProgress"></ion-progress-bar>
+                </div>
+
+              </ion-card-content>
+            </ion-card>
           </div>
         </ion-card-content>
       </ion-card>

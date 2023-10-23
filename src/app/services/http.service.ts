@@ -108,6 +108,36 @@ export class HttpService {
     return this.http.get(`${environment.baseUrl}${environment.cozinha}`, {headers});  
   }
 
+  getAlimentosAvaliados(id:number){
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjozMTU3NTUwMDgwLCJpYXQiOjE2OTU2NjIwODAsImp0aSI6IjYxYTgwOWJiN2I0ODQ0NDZhYTFlOWVmOWNhZGZlM2RhIiwidXNlcl9pZCI6MX0.yz2_-wH1Y6NK12wIxFyPvcZM8O-H9B5vEzs9EpZd5xo'; // Substitua pelo seu token real
+
+    // Configurar o cabeçalho de autorização
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.get(`${environment.baseUrl}${environment.avaliacaoP}?id_do_prato=${id}`, {headers});
+  }
+
+  getChefesAvaliados(id:number){
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjozMTU3NTUwMDgwLCJpYXQiOjE2OTU2NjIwODAsImp0aSI6IjYxYTgwOWJiN2I0ODQ0NDZhYTFlOWVmOWNhZGZlM2RhIiwidXNlcl9pZCI6MX0.yz2_-wH1Y6NK12wIxFyPvcZM8O-H9B5vEzs9EpZd5xo'; // Substitua pelo seu token real
+
+    // Configurar o cabeçalho de autorização
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.get(`${environment.baseUrl}${environment.avaliacaoCh}?id_do_chefe=${id}`, {headers});
+  }
+
+  getCozinhaAvalicao(){
+    
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjozMTU3NTUwMDgwLCJpYXQiOjE2OTU2NjIwODAsImp0aSI6IjYxYTgwOWJiN2I0ODQ0NDZhYTFlOWVmOWNhZGZlM2RhIiwidXNlcl9pZCI6MX0.yz2_-wH1Y6NK12wIxFyPvcZM8O-H9B5vEzs9EpZd5xo'; // Substitua pelo seu token real
+
+    // Configurar o cabeçalho de autorização
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.get(`${environment.baseUrl}${environment.avaliacaoCz}`, {headers});
+  }
 
   validarLogin(pin: string): Observable<any> {
     const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjozMTU3NTUwMDgwLCJpYXQiOjE2OTU2NjIwODAsImp0aSI6IjYxYTgwOWJiN2I0ODQ0NDZhYTFlOWVmOWNhZGZlM2RhIiwidXNlcl9pZCI6MX0.yz2_-wH1Y6NK12wIxFyPvcZM8O-H9B5vEzs9EpZd5xo'; // Substitua pelo seu token real
@@ -132,7 +162,7 @@ export class HttpService {
 
   enviarAvaliacaoPrato(avaliacaoData: any): Observable <any> {
     console.log(avaliacaoData, 'avalia')
-    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjozMTU3NTUwMDgwLCJpYXQiOjE2OTU2NjIwODAsImp0aSI6IjYxYTgwOWJiN2I0ODQ0NDZhYTFlOWVmOWNhZGZlM2RhIiwidXNlcl9pZCI6MX0.yz2_-wH1Y6NK12wIxFyPvcZM8O-H9B5vEzs9EpZd5xo' ; // Substitua pelo seu token real
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjozMTU2NDA0ODE3LCJpYXQiOjE2OTQ1MTY4MTcsImp0aSI6IjQzNWQzM2Y5MTdmNTQ4ZjU4OGNhMjZhMmM4ODk5NjFkIiwidXNlcl9pZCI6MX0.AJ8dPLnJNOXni95rU_Wt-2he_l7fZOiamTX93w7zn3I' ; // Substitua pelo seu token real
     // Configurar o cabeçalho de autorização
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`

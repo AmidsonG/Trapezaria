@@ -19,6 +19,19 @@ export class Tab3Page implements OnInit {
   selectedEmail: string = '';
   estrelasSelecionadas: number = 0;
 
+  mediaAvaliado: number = 0.0;
+  totalAvaliado: number =0;
+  public chefsAvaliados: any;
+  public alertButtons = ['OK'];
+
+  stars = [5, 4, 3, 2, 1];
+  progress: Record<number, number> = { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
+  maxProgress = 10; // Ajuste conforme necessário
+
+  atualizarProgressBar(numeroDeEstrelas: number) {
+    this.progress[numeroDeEstrelas]++;
+  }
+
   isModalOpen = false;
   openModal(image: string, nome: string, id: number, departamento: string, funcao: string, morada: string, email: string) {
     this.selectedImage = image;
@@ -29,6 +42,9 @@ export class Tab3Page implements OnInit {
     this.selectedMorada = morada;
     this.selectedEmail = email;
     this.isModalOpen = true;
+
+    this.getChefesAvaliacoes(id);
+    
   }
 
   closeModal() {
@@ -80,6 +96,17 @@ export class Tab3Page implements OnInit {
     this.isModalOpen = isOpen;
   }
 
+  getChefesAvaliacoes(id: number) {
+
+    this.httpService.getChefesAvaliados(id).subscribe((oRet) => {
+     this.chefsAvaliados = oRet;
+     this.totalAvaliado = this.chefsAvaliados.length;
+     this.mediaAvaliado = this.totalAvaliado/2;
+     this.chefsAvaliados.forEach((element :any, key:string) => {
+      this.atualizarProgressBar(element.numero_de_estrelas);
+      });
+    });
+  }
 }
 
 

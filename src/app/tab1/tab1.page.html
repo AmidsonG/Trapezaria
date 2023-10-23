@@ -37,15 +37,15 @@
                 <img class="card-img" alt="Silhouette of mountains" src="{{selectedImage}}" width="200" height="150" />
                 <ion-card-header>
                   <ion-card-title>{{selectedTitle}}</ion-card-title>
-                  
+
                 </ion-card-header>
 
                 <ion-card-content>
                   <hr class="horizontal-bar">
-                  <br/>
+                  <br />
                   <p class="detalhesModal"><b>DETALHES DO PRATO: </b>{{selectedDescription}}</p>
-             
-                  <br/>
+
+                  <br />
                   <hr class="horizontal-bar">
                   <h3 class="h3-modal">Classificação do Prato</h3>
 
@@ -61,7 +61,33 @@
                     <ion-icon [name]="estrelasSelecionadas >= 5 ? 'star' : 'star-outline'"
                       (click)="setRating(5)"></ion-icon>
                     <br />
-                    <button class="buttonModal" (click)="avaliarPrato()">Avaliar</button>
+                    <button id="present-alert" class="buttonModal" (click)="avaliarPrato()"> Avaliar </button>
+                    <ion-alert trigger="present-alert" header="Avaliação" subHeader=""
+                      message="Avaliação Feita com sucesso!" [buttons]="alertButtons"></ion-alert>
+
+                    <div>
+                      <ion-card class="background-card">
+                        <ion-card-header class="media_Tamnho">
+                          Média: {{mediaAvaliado}}
+                        </ion-card-header>
+                        <ion-card-content>
+                          Número de Classificações: {{totalAvaliado}}
+                        </ion-card-content>
+
+                      </ion-card>
+
+                      <ion-card class="background-card">
+
+                        <ion-card-content class="pb-0" *ngFor="let star of stars">
+                          <div class="bar-estrelas">
+                            {{ star }}
+                            <ion-icon name="star"> </ion-icon>
+                            <ion-progress-bar [value]="progress[star] / maxProgress"></ion-progress-bar>
+                          </div>
+
+                        </ion-card-content>
+                      </ion-card>
+                    </div>
                   </div>
                 </ion-card-content>
               </ion-card>

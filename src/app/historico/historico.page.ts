@@ -16,11 +16,25 @@ export class HistoricoPage implements OnInit {
   selectedTitle!: String;
   selectedDescription!: String;
 
-  openModal(image: string, title: string, description: string) {
+  mediaAvaliado: number = 0.0;
+  totalAvaliado: number =0;
+  public pratosAvaliados: any;
+
+  stars = [5, 4, 3, 2, 1];
+  progress: Record<number, number> = { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
+  maxProgress = 10; // Ajuste conforme necessário
+
+  atualizarProgressBar(numeroDeEstrelas: number) {
+    this.progress[numeroDeEstrelas]++;
+  }
+
+  openModal(image: string, title: string, description: string, id: number) {
     this.selectedImage = image;
     this.selectedTitle = title;
     this.selectedDescription = description;
     this.isModalOpen = true;
+
+    this.getPratosAvaliacoes(id);
   }
 
   closeModal() {
@@ -58,6 +72,20 @@ export class HistoricoPage implements OnInit {
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
   }
+
+
+  getPratosAvaliacoes(id: number) {
+    this.httpService.getAlimentosAvaliados(id).subscribe((oRet) => {
+     this.pratosAvaliados = oRet;
+     this.totalAvaliado = this.pratosAvaliados.length;
+     this.mediaAvaliado = this.totalAvaliado/2;
+     this.pratosAvaliados.forEach((element :any, key:string) => {
+      this.atualizarProgressBar(element.numero_de_estrelas);
+      });
+    });
+  }
 }
+
+
 
 
